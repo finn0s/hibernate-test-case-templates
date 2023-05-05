@@ -85,7 +85,7 @@ public class ORMUnitTestCase extends BaseCoreFunctionalTestCase {
         Transaction tx = s.beginTransaction();
 
         final List<Animal> animals = s.createQuery(
-                "select animal from Animal animal join fetch animal.kittens").getResultList();
+                "select animal from Animal animal left join fetch animal.kittens").getResultList();
 
         tx.commit();
         s.close();
